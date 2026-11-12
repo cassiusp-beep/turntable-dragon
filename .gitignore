@@ -1,0 +1,19 @@
+# macOS / Python
+.DS_Store
+__pycache__/
+**/.venv/
+
+# Rhino model: 200 MB, over GitHub's file limit. dragon_automaton.py / turntable_dragon.py regenerate it.
+*.3dm
+*.3dm.rhl
+*.3dmbak
+
+# Bundles and backups (duplicates of what's in the folders)
+*.zip
+*.stlbak
+Dragon_Automaton_Files/IGNORE_backup_files/
+
+# D3Craft Flexi Dragon: personal-use licence, must not be redistributed
+*PERSONAL_USE*
+obj_1_*.stl
+*[Ff]lexi[Dd]ragon*.stl

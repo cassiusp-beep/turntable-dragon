@@ -1,0 +1,56 @@
+Dragon automaton - print files (mm, binary STL, each lies on its print face at the origin)
+Slicer: Bambu Studio, X-Y hole compensation 0, no supports. Qty 1 each.
+NOT included: Flexi Dragon (print D3Craft's MakerWorld file at 125%), acrylic front 288x118x3 (laser cut),
+the motor (buy it).
+08_* = printed replacements for dowels, pins and the shaft (made by printed_hardware.py). Use 1.75 mm filament
+for the 2 mm cross pins and the wing links.
+
+00_FitTest_ladder.stl                                 204.6 x   28.0 x   14.0    16988 tris  closed  
+01_BackPanel_A.stl                                    144.0 x  118.0 x    6.0     1208 tris  closed  teardrop seam pins face up
+01_BackPanel_A.stl                                    144.0 x  118.0 x    6.0     1208 tris  closed  teardrop seam pins face up
+01_BackPanel_B.stl                                    144.0 x  118.0 x    6.0     1200 tris  closed  teardrop seam pins face up
+01_BackPanel_B.stl                                    144.0 x  118.0 x    6.0     1200 tris  closed  teardrop seam pins face up
+01_EndWall_L.stl                                      120.0 x  118.0 x    6.0      460 tris  closed  
+01_EndWall_R.stl                                      120.0 x  118.0 x    6.0      460 tris  closed  
+01_Floor_A.stl                                        150.0 x  120.0 x    6.0     1256 tris  closed  
+01_Floor_B.stl                                        150.0 x  120.0 x    6.0     1224 tris  closed  
+01_GuideBlock_L.stl                                    15.0 x   30.0 x   15.0       12 tris  closed  
+01_GuideBlock_R.stl                                    15.0 x   30.0 x   15.0       12 tris  closed  
+01_RodGuideBar_A.stl                                  144.0 x   30.0 x    6.0     3364 tris  closed  
+01_RodGuideBar_B.stl                                  144.0 x   30.0 x    6.0     2480 tris  closed  
+01_Support_Aframe.stl                                  80.0 x   56.0 x    6.0      460 tris  closed  
+01_TopPlate_A.stl                                     150.0 x  120.0 x    6.0     3376 tris  closed  
+01_TopPlate_B.stl                                     150.0 x  120.0 x    6.0     2496 tris  closed  
+02_Cam_Head_snail.stl                                  60.5 x   54.6 x   15.0     4858 tris  closed  hub up
+02_Cam_R1_tail.stl                                     40.0 x   40.0 x   13.0     5024 tris  closed  hub up
+02_Cam_R2_back.stl                                     40.0 x   40.0 x   13.0     5028 tris  closed  hub up
+02_Cam_R3_belly.stl                                    40.0 x   40.0 x   13.0     5044 tris  closed  hub up
+02_Cam_R4_neck.stl                                     40.0 x   40.0 x   13.0     5020 tris  closed  hub up
+02_Cam_Wing.stl                                        44.0 x   44.0 x   13.0     4780 tris  closed  hub up
+03_HeadRod_foot.stl                                    18.0 x   18.0 x    9.0     2052 tris  closed  feet: disc down
+03_R1_tail_foot.stl                                    18.0 x   18.0 x    9.0     2044 tris  closed  feet: disc down
+03_R2_back_foot.stl                                    18.0 x   18.0 x    9.0     2040 tris  closed  feet: disc down
+03_R3_belly_foot.stl                                   18.0 x   18.0 x    9.0     2040 tris  closed  feet: disc down
+03_R4_neck_foot.stl                                    18.0 x   18.0 x    9.0     2040 tris  closed  feet: disc down
+03_WingRod_foot.stl                                    18.0 x   18.0 x    9.0     2060 tris  closed  feet: disc down
+04_ChestMount.stl                                      22.5 x    7.5 x    3.0       20 tris  closed  pad
+04_Cradle_R1_tail.stl                                  18.0 x   19.8 x   12.0       92 tris  closed  boss down
+04_Cradle_R2_back.stl                                  20.4 x   19.8 x   12.0       92 tris  closed  boss down
+04_Cradle_R3_belly.stl                                 23.8 x   19.8 x   12.0      116 tris  closed  boss down
+04_Cradle_R4_neck.stl                                  20.2 x   19.8 x   12.0       92 tris  closed  boss down
+04_Cradle_head.stl                                     27.1 x   20.6 x   12.0       92 tris  closed  boss down
+05_ChestMount_block.stl                                32.0 x   44.0 x   19.5     3568 tris  closed  base down, ears up
+06_Wing_Back_bones_colour2.stl                         84.8 x  157.0 x    6.1    44072 tris  closed  same frame as membrane
+06_Wing_Back_membrane_colour1.stl                      75.7 x  155.3 x    6.6     4636 tris  closed  membrane down; load with the colour2 file as one object
+06_Wing_Front_bones_colour2.stl                        84.8 x  157.0 x    6.1    43942 tris  closed  same frame as membrane
+06_Wing_Front_membrane_colour1.stl                     75.7 x  155.3 x    6.6     4496 tris  closed  membrane down; load with the colour2 file as one object
+07_HandCrank_arm.stl                                    8.0 x   34.0 x    6.0       12 tris  closed  
+07_HandCrank_knob.stl                                   8.0 x    8.0 x   18.0     1724 tris  closed  
+07_MotorShelf.stl                                      72.0 x   32.0 x    3.0       12 tris  closed  
+08_Rod_R1_tail / R2_back / R3_belly / R4_neck   88 mm   lay flat, brim on
+08_Rod_Head                                      83.4 mm lay flat, brim on
+08_WingRod_T_with_crossbar                       wing rod + crossbar in one piece, lay flat
+08_ShoulderPost_1 / _2                           65 mm   lay flat, brim on
+08_Pins_3mm_x12                                  2 wing hinges + 8 panel seams + 2 spare
+08_Shaft_A_left (215.6 mm) + 08_Shaft_B_right (110.4 mm)   D flat on the bed, brim on, 100% infill
+08_Shaft_joint_sleeve                            stand it up (bore vertical); glue it over the joint between cams R3 and R4
