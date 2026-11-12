@@ -1,6 +1,6 @@
 # Turntable Dragon
 
-A printed dragon curls on a geared turntable. A webcam watches your face: **smile and the dragon spins; stop smiling and it stops.**
+A printed dragon curls on a geared turntable. A webcam watches your face: **smile and the dragon spins, then it keeps going for 10 s (about 3 turns) after you stop.**
 
 A solo project on **expressive mechanics** for a physical computing class, built in four days (Nov 9–12, 2026). It began as a camshaft automaton with cams, push rods and flapping wings. That design jammed, so I pivoted to a single geared turntable. The interaction pivoted too: the original "scream to make it move" became "smile to make it spin." This README covers both versions and why things changed.
 
@@ -21,7 +21,7 @@ webcam -> smile_dragon.py (MediaPipe FaceMesh) --"S100"/"S0" over USB--> Elegoo 
 - **Smile detection** ([`smile_dragon.py`](Turntable_Dragon_Files/XX_3_CODE/smile_dragon.py)):
   - The smile measure is mouth width (landmarks 61/291) divided by face width (234/454).
   - It's compared with your relaxed face, captured in a 2 s calibration.
-  - The motor turns on above +10% and off below +6%, with 0.15 s and 0.30 s debounces so it doesn't flicker.
+  - A smile above +10% held for 0.15 s starts the motor. It keeps spinning for 10 s after the last smile, and smiling again restarts the timer.
   - Talking or opening your mouth doesn't widen it, so only a smile counts.
 - **Firmware** ([`dragon_motor.ino`](Turntable_Dragon_Files/XX_3_CODE/dragon_motor/dragon_motor.ino)):
   - It reads `S<0-100>\n` at 115200 baud. `S0` means stopped; anything higher means full speed.
@@ -96,7 +96,7 @@ Full test log: [`XX_ARDUINO_TESTING_HANDOFF.md`](Turntable_Dragon_Files/XX_ARDUI
 
 ### 6. Interaction: from scream to smile (Nov 12)
 - **Original:** [`scream_dragon.py`](Turntable_Dragon_Files/XX_3_CODE/scream_dragon.py) scored "anguish" from 0 to 100. It blended how wide your mouth opened (65%) with microphone loudness above the room baseline (35%), and the dragon sped up the more you screamed.
-- **Final:** [`smile_dragon.py`](Turntable_Dragon_Files/XX_3_CODE/smile_dragon.py) is a simple **on/off switch: smile and it spins.** It suits the hardware better, since full speed versus stopped is easy to see, while small speed changes weren't. It also doesn't need a quiet room or a microphone.
+- **Final:** [`smile_dragon.py`](Turntable_Dragon_Files/XX_3_CODE/smile_dragon.py) is a simple **switch: smile and it spins for 10 s.** It suits the hardware better, since full speed versus stopped is easy to see, while small speed changes weren't. It also doesn't need a quiet room or a microphone.
 - **First-run bug:** calibration ran before a face was in view, so the script had no baseline and never detected a smile. Now it keeps calibrating until it sees a face, and it logs its readings to the console.
 
 ### Next: dragon eggs

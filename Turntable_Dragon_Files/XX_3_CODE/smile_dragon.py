@@ -1,6 +1,6 @@
 """Smile switch for the turntable dragon (Mac).
 
-The webcam watches your face. Smile -> the platter spins at full speed. No smile (or no face) -> it stops.
+The webcam watches your face. Smile -> the platter spins at full speed, and keeps going for 10 s after you stop.
 Sends "S100" or "S0" to the Uno at 15 Hz (dragon_motor.ino: S0 = stopped, laptop gone for 2 s = stopped).
 
 Run (with the Python env from the old folder):
@@ -34,7 +34,7 @@ except ImportError:
 SMILE_ON = 0.10    # mouth this much wider than relaxed (0.10 = +10%) turns the motor on
 SMILE_OFF = 0.06   # ...and it turns off again below this (the gap stops flicker)
 HOLD_ON = 0.15     # seconds a smile must last before the motor starts
-HOLD_OFF = 0.30    # seconds without a smile before the motor stops
+HOLD_OFF = 10.0    # keep spinning this long after the last smile (~3 platter turns); smiling again restarts it
 SEND_HZ = 15
 
 
@@ -126,11 +126,13 @@ def main():
         cv2.rectangle(frame, (0, 0), (wd - 1, h - 1), colour, 12)
         if now < calib_until:
             txt = "calibrating: relaxed face..."
-        elif r is None:
-            txt = "no face -> OFF"
         else:
-            txt = "{}   smile {:+.0%}  (on at {:+.0%}){}".format(
-                "SPINNING" if motor else "off", widen, SMILE_ON, "  [SPACE]" if now < forced_until else "")
+            if on and not raw:
+                state = "SPINNING {:.0f}s left".format(max(0.0, HOLD_OFF - (now - since)))
+            else:
+                state = "SPINNING" if motor else "off"
+            face = "no face" if r is None else "smile {:+.0%}  (on at {:+.0%})".format(widen, SMILE_ON)
+            txt = "{}   {}{}".format(state, face, "  [SPACE]" if now < forced_until else "")
         cv2.putText(frame, txt, (24, h - 30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 3)
         cv2.imshow("Dragon: smile to spin it (q quits, c recalibrates)", frame)
         k = cv2.waitKey(1) & 0xFF
